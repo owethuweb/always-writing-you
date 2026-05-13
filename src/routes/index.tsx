@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
+import logo from "@/assets/logo.png";
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -85,16 +86,7 @@ function Index() {
       <header>
         <div className="header-inner">
           <a className="logo" href="#top">
-            <svg className="logo-mark" viewBox="0 0 36 36" fill="none">
-              <circle cx="18" cy="18" r="16" stroke="#6B2737" strokeWidth="1" />
-              <path
-                d="M12 22c2-6 4-8 6-8s4 2 6 8"
-                stroke="#B8873A"
-                strokeWidth="1.2"
-                strokeLinecap="round"
-              />
-              <circle cx="18" cy="13" r="1.4" fill="#6B2737" />
-            </svg>
+            <img className="logo-mark" src={logo} alt="Still Writing" />
             <span className="logo-text">
               Still <span>Writing</span>
             </span>
@@ -225,7 +217,7 @@ function Index() {
           <button className="modal-close" onClick={() => setModalOpen(false)}>
             ✕
           </button>
-          <div className="modal-ornament">✦</div>
+          <img className="modal-logo" src={logo} alt="Still Writing" />
           <h2>Stay close</h2>
           <p>
             New letters land in your inbox whenever I write one. No noise, just
@@ -304,7 +296,8 @@ const styles = `
     height: 64px;
   }
   .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
-  .logo-mark { width: 36px; height: 36px; }
+  .logo-mark { width: 36px; height: 36px; object-fit: contain; }
+  .modal-logo { width: 72px; height: 72px; object-fit: contain; margin: 0 auto 12px; display: block; }
   .logo-text {
     font-family: 'Cormorant Garamond', serif; font-weight: 500;
     font-size: 1.35rem; color: var(--ink); letter-spacing: 0.01em;
