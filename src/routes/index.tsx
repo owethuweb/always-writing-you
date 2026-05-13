@@ -293,25 +293,25 @@ const styles = `
   .header-inner {
     max-width: 860px; margin: 0 auto;
     display: flex; align-items: center; justify-content: space-between;
-    height: 64px;
+    min-height: 88px;
   }
   .logo {
-    display: inline-flex; align-items: center; gap: 10px;
+    display: inline-flex; align-items: center; gap: 12px;
     text-decoration: none; min-width: 0; flex: 0 1 auto;
   }
   .logo-mark {
-    width: clamp(28px, 6vw, 40px);
-    height: clamp(28px, 6vw, 40px);
+    width: clamp(56px, 10vw, 76px);
+    height: clamp(56px, 10vw, 76px);
     aspect-ratio: 1 / 1;
     object-fit: contain; object-position: center;
     flex-shrink: 0; display: block;
   }
   .modal-logo {
-    width: clamp(56px, 16vw, 80px);
-    height: clamp(56px, 16vw, 80px);
+    width: clamp(96px, 22vw, 128px);
+    height: clamp(96px, 22vw, 128px);
     aspect-ratio: 1 / 1;
     object-fit: contain; object-position: center;
-    margin: 0 auto 12px; display: block;
+    margin: 0 auto 16px; display: block;
   }
   .logo-text {
     font-family: 'Cormorant Garamond', serif; font-weight: 500;
