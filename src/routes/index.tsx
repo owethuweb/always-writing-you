@@ -296,7 +296,8 @@ const styles = `
     height: 64px;
   }
   .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
-  .logo-mark { width: 36px; height: 36px; }
+  .logo-mark { width: 36px; height: 36px; object-fit: contain; }
+  .modal-logo { width: 72px; height: 72px; object-fit: contain; margin: 0 auto 12px; display: block; }
   .logo-text {
     font-family: 'Cormorant Garamond', serif; font-weight: 500;
     font-size: 1.35rem; color: var(--ink); letter-spacing: 0.01em;
