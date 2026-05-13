@@ -295,9 +295,24 @@ const styles = `
     display: flex; align-items: center; justify-content: space-between;
     height: 64px;
   }
-  .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
-  .logo-mark { width: 36px; height: 36px; object-fit: contain; }
-  .modal-logo { width: 72px; height: 72px; object-fit: contain; margin: 0 auto 12px; display: block; }
+  .logo {
+    display: inline-flex; align-items: center; gap: 10px;
+    text-decoration: none; min-width: 0; flex: 0 1 auto;
+  }
+  .logo-mark {
+    width: clamp(28px, 6vw, 40px);
+    height: clamp(28px, 6vw, 40px);
+    aspect-ratio: 1 / 1;
+    object-fit: contain; object-position: center;
+    flex-shrink: 0; display: block;
+  }
+  .modal-logo {
+    width: clamp(56px, 16vw, 80px);
+    height: clamp(56px, 16vw, 80px);
+    aspect-ratio: 1 / 1;
+    object-fit: contain; object-position: center;
+    margin: 0 auto 12px; display: block;
+  }
   .logo-text {
     font-family: 'Cormorant Garamond', serif; font-weight: 500;
     font-size: 1.35rem; color: var(--ink); letter-spacing: 0.01em;
