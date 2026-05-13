@@ -217,7 +217,7 @@ function Index() {
           <button className="modal-close" onClick={() => setModalOpen(false)}>
             ✕
           </button>
-          <div className="modal-ornament">✦</div>
+          <img className="modal-logo" src={logo} alt="Still Writing" />
           <h2>Stay close</h2>
           <p>
             New letters land in your inbox whenever I write one. No noise, just
