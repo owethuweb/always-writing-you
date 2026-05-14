@@ -239,7 +239,7 @@ function Index() {
 
       <a
         className="coffee-btn"
-        href="https://buymeacoffee.com"
+        href="https://buymeacoffee.com/stillwriting"
         target="_blank"
         rel="noreferrer"
       >
