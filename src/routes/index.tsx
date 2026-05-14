@@ -119,7 +119,7 @@ function Index() {
           <div className="post-meta">
             <span className="post-number">No. 001</span>
             <span className="post-divider" />
-            <span className="post-date">May 2025</span>
+            <span className="post-date">May 13, 2026</span>
           </div>
           <div className="post-body">
             <p>
@@ -174,7 +174,7 @@ function Index() {
           <div className="post-meta">
             <span className="post-number">No. 002</span>
             <span className="post-divider" />
-            <span className="post-date">May 2025</span>
+            <span className="post-date">May 13, 2026</span>
           </div>
           <div className="post-body">
             <p className="one-liner">
