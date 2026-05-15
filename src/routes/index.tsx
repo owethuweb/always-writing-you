@@ -47,6 +47,8 @@ function Index() {
     window.setTimeout(() => setToast(null), 2400);
   };
 
+  const [dbPosts, setDbPosts] = useState<DbPost[]>([]);
+
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
       if (e.key === "Escape") setModalOpen(false);
@@ -54,6 +56,23 @@ function Index() {
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
   }, []);
+
+  useEffect(() => {
+    supabase
+      .from("posts")
+      .select("id, title, body, image_url, created_at")
+      .order("created_at", { ascending: false })
+      .then(({ data }) => {
+        if (data) setDbPosts(data as DbPost[]);
+      });
+  }, []);
+
+  const formatDate = (iso: string) =>
+    new Date(iso).toLocaleDateString("en-US", {
+      month: "long",
+      day: "numeric",
+      year: "numeric",
+    });
 
   const share = async (title: string, text: string) => {
     try {
