@@ -435,6 +435,16 @@ const styles = `
     font-size: 0.75rem; letter-spacing: 0.1em;
     text-transform: uppercase; color: var(--muted);
   }
+  .post-image {
+    width: 100%; height: auto; border-radius: 8px;
+    margin-bottom: 24px; display: block;
+    box-shadow: 0 8px 32px rgba(42, 31, 23, 0.12);
+  }
+  .post-title {
+    font-family: 'Cormorant Garamond', serif; font-weight: 500;
+    font-size: 1.8rem; color: var(--wine);
+    margin-bottom: 16px; line-height: 1.2;
+  }
   .post-body {
     font-family: 'Cormorant Garamond', serif; font-size: 1.35rem;
     font-weight: 300; line-height: 1.75; color: var(--ink);
