@@ -1,6 +1,15 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import logo from "@/assets/logo.png";
+import { supabase } from "@/integrations/supabase/client";
+
+type DbPost = {
+  id: string;
+  title: string;
+  body: string;
+  image_url: string | null;
+  created_at: string;
+};
 
 export const Route = createFileRoute("/")({
   component: Index,
