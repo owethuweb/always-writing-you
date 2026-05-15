@@ -1,6 +1,15 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import logo from "@/assets/logo.png";
+import { supabase } from "@/integrations/supabase/client";
+
+type DbPost = {
+  id: string;
+  title: string;
+  body: string;
+  image_url: string | null;
+  created_at: string;
+};
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -38,6 +47,8 @@ function Index() {
     window.setTimeout(() => setToast(null), 2400);
   };
 
+  const [dbPosts, setDbPosts] = useState<DbPost[]>([]);
+
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
       if (e.key === "Escape") setModalOpen(false);
@@ -45,6 +56,23 @@ function Index() {
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
   }, []);
+
+  useEffect(() => {
+    supabase
+      .from("posts")
+      .select("id, title, body, image_url, created_at")
+      .order("created_at", { ascending: false })
+      .then(({ data }) => {
+        if (data) setDbPosts(data as DbPost[]);
+      });
+  }, []);
+
+  const formatDate = (iso: string) =>
+    new Date(iso).toLocaleDateString("en-US", {
+      month: "long",
+      day: "numeric",
+      year: "numeric",
+    });
 
   const share = async (title: string, text: string) => {
     try {
@@ -115,6 +143,37 @@ function Index() {
       <div className="ornament">— ✦ —</div>
 
       <main className="posts">
+        {dbPosts.map((p, i) => (
+          <article className="post" key={p.id}>
+            <div className="post-meta">
+              <span className="post-number">
+                No. {String(dbPosts.length + 2 - i).padStart(3, "0")}
+              </span>
+              <span className="post-divider" />
+              <span className="post-date">{formatDate(p.created_at)}</span>
+            </div>
+            {p.image_url && (
+              <img className="post-image" src={p.image_url} alt={p.title} />
+            )}
+            {p.title && <h2 className="post-title">{p.title}</h2>}
+            <div className="post-body">
+              {p.body.split(/\n\n+/).map((para, idx) => (
+                <p key={idx} style={{ whiteSpace: "pre-wrap" }}>{para}</p>
+              ))}
+            </div>
+            <div className="post-footer">
+              <button
+                className="action-btn"
+                onClick={() => share(p.title || "Still Writing", p.body.slice(0, 140))}
+              >
+                Share this
+              </button>
+              <button className="action-btn" onClick={() => copy(p.body)}>
+                Copy
+              </button>
+            </div>
+          </article>
+        ))}
         <article className="post">
           <div className="post-meta">
             <span className="post-number">No. 001</span>
@@ -375,6 +434,16 @@ const styles = `
   .post-date {
     font-size: 0.75rem; letter-spacing: 0.1em;
     text-transform: uppercase; color: var(--muted);
+  }
+  .post-image {
+    width: 100%; height: auto; border-radius: 8px;
+    margin-bottom: 24px; display: block;
+    box-shadow: 0 8px 32px rgba(42, 31, 23, 0.12);
+  }
+  .post-title {
+    font-family: 'Cormorant Garamond', serif; font-weight: 500;
+    font-size: 1.8rem; color: var(--wine);
+    margin-bottom: 16px; line-height: 1.2;
   }
   .post-body {
     font-family: 'Cormorant Garamond', serif; font-size: 1.35rem;
