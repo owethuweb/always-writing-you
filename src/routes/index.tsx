@@ -143,6 +143,37 @@ function Index() {
       <div className="ornament">— ✦ —</div>
 
       <main className="posts">
+        {dbPosts.map((p, i) => (
+          <article className="post" key={p.id}>
+            <div className="post-meta">
+              <span className="post-number">
+                No. {String(dbPosts.length + 2 - i).padStart(3, "0")}
+              </span>
+              <span className="post-divider" />
+              <span className="post-date">{formatDate(p.created_at)}</span>
+            </div>
+            {p.image_url && (
+              <img className="post-image" src={p.image_url} alt={p.title} />
+            )}
+            {p.title && <h2 className="post-title">{p.title}</h2>}
+            <div className="post-body">
+              {p.body.split(/\n\n+/).map((para, idx) => (
+                <p key={idx} style={{ whiteSpace: "pre-wrap" }}>{para}</p>
+              ))}
+            </div>
+            <div className="post-footer">
+              <button
+                className="action-btn"
+                onClick={() => share(p.title || "Still Writing", p.body.slice(0, 140))}
+              >
+                Share this
+              </button>
+              <button className="action-btn" onClick={() => copy(p.body)}>
+                Copy
+              </button>
+            </div>
+          </article>
+        ))}
         <article className="post">
           <div className="post-meta">
             <span className="post-number">No. 001</span>
