@@ -248,35 +248,6 @@ function Index() {
         </article>
       </main>
 
-      <div
-        className={`modal-overlay${modalOpen ? " open" : ""}`}
-        onClick={(e) => {
-          if (e.target === e.currentTarget) setModalOpen(false);
-        }}
-      >
-        <div className="modal">
-          <button className="modal-close" onClick={() => setModalOpen(false)}>
-            ✕
-          </button>
-          <img className="modal-logo" src={logo} alt="Still Writing" />
-          <h2>Stay close</h2>
-          <p>
-            New letters land in your inbox whenever I write one. No noise, just
-            love.
-          </p>
-          <form onSubmit={submit}>
-            <input
-              type="email"
-              placeholder="you@email.com"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-            />
-            <button type="submit" className="modal-submit">
-              Follow along
-            </button>
-          </form>
-        </div>
-      </div>
 
       <a
         className="coffee-btn"
