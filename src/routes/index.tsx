@@ -107,6 +107,8 @@ function Index() {
     showToast("You're in — watch your inbox ✦");
   };
 
+  const WHATSAPP_URL = "https://whatsapp.com/channel/0029VbCqz5RDJ6GuTZ4XMl3n";
+
   return (
     <>
       <style>{styles}</style>
@@ -120,12 +122,12 @@ function Index() {
             </span>
           </a>
           <nav>
-            <button className="nav-btn" onClick={() => setModalOpen(true)}>
+            <a className="nav-btn" href={WHATSAPP_URL} target="_blank" rel="noreferrer">
               Notify me
-            </button>
-            <button className="subscribe-btn" onClick={() => setModalOpen(true)}>
-              Follow along
-            </button>
+            </a>
+            <a className="subscribe-btn" href={WHATSAPP_URL} target="_blank" rel="noreferrer">
+              Follow on WhatsApp
+            </a>
           </nav>
         </div>
       </header>
