@@ -39,8 +39,6 @@ export const Route = createFileRoute("/")({
 
 function Index() {
   const [toast, setToast] = useState<string | null>(null);
-  const [modalOpen, setModalOpen] = useState(false);
-  const [email, setEmail] = useState("");
 
   const showToast = (msg: string) => {
     setToast(msg);
@@ -48,14 +46,6 @@ function Index() {
   };
 
   const [dbPosts, setDbPosts] = useState<DbPost[]>([]);
-
-  useEffect(() => {
-    const onKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape") setModalOpen(false);
-    };
-    window.addEventListener("keydown", onKey);
-    return () => window.removeEventListener("keydown", onKey);
-  }, []);
 
   useEffect(() => {
     supabase
@@ -96,16 +86,6 @@ function Index() {
     }
   };
 
-  const submit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!email.includes("@")) {
-      showToast("Pop your email in first ♡");
-      return;
-    }
-    setModalOpen(false);
-    setEmail("");
-    showToast("You're in — watch your inbox ✦");
-  };
 
   const WHATSAPP_URL = "https://whatsapp.com/channel/0029VbCqz5RDJ6GuTZ4XMl3n";
 
