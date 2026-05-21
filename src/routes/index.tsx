@@ -31,7 +31,7 @@ export const Route = createFileRoute("/")({
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       {
         rel: "stylesheet",
-        href: "https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Jost:wght@300;400;500&display=swap",
+        href: "https://fonts.googleapis.com/css2?family=Pinyon+Script&family=Petit+Formal+Script&family=Caveat:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;1,400;1,500&display=swap",
       },
     ],
   }),
@@ -338,7 +338,7 @@ const styles = `
   body {
     background: var(--cream);
     color: var(--ink);
-    font-family: 'Jost', sans-serif;
+    font-family: 'Caveat', cursive;
     font-weight: 300;
     line-height: 1.7;
     min-height: 100vh;
@@ -373,7 +373,7 @@ const styles = `
     margin: 0 auto 16px; display: block;
   }
   .logo-text {
-    font-family: 'Cormorant Garamond', serif; font-weight: 500;
+    font-family: 'Pinyon Script', 'Petit Formal Script', cursive; font-weight: 500;
     font-size: 1.35rem; color: var(--ink); letter-spacing: 0.01em;
   }
   .logo-text span { color: var(--wine); font-style: italic; }
@@ -381,7 +381,7 @@ const styles = `
   .nav-btn {
     background: none; border: none; cursor: pointer;
     padding: 8px 14px; border-radius: 40px;
-    font-family: 'Jost', sans-serif; font-size: 0.82rem; font-weight: 400;
+    font-family: 'Caveat', cursive; font-size: 0.82rem; font-weight: 400;
     letter-spacing: 0.06em; text-transform: uppercase;
     transition: all 0.2s; color: var(--muted);
   }
@@ -389,25 +389,25 @@ const styles = `
   .subscribe-btn {
     background: var(--wine); color: #fff; border: none; cursor: pointer;
     padding: 8px 20px; border-radius: 40px;
-    font-family: 'Jost', sans-serif; font-size: 0.82rem; font-weight: 400;
+    font-family: 'Caveat', cursive; font-size: 0.82rem; font-weight: 400;
     letter-spacing: 0.08em; text-transform: uppercase; transition: all 0.2s;
   }
   .subscribe-btn:hover { background: var(--wine-light); transform: translateY(-1px); }
   .hero { text-align: center; padding: 80px 2rem 60px; max-width: 700px; margin: 0 auto; }
   .hero-eyebrow {
-    font-family: 'Jost', sans-serif; font-size: 0.75rem;
+    font-family: 'Caveat', cursive; font-size: 0.75rem;
     letter-spacing: 0.18em; text-transform: uppercase;
     color: var(--gold); margin-bottom: 20px;
   }
   .hero-title {
-    font-family: 'Cormorant Garamond', serif;
+    font-family: 'Pinyon Script', 'Petit Formal Script', cursive;
     font-size: clamp(3.2rem, 8vw, 5.5rem); font-weight: 300;
     line-height: 1.05; color: var(--ink);
     letter-spacing: -0.01em; margin-bottom: 16px;
   }
   .hero-title em { font-style: italic; color: var(--wine); }
   .hero-tagline {
-    font-family: 'Cormorant Garamond', serif; font-style: italic;
+    font-family: 'Pinyon Script', 'Petit Formal Script', cursive; font-style: italic;
     font-size: 1.15rem; color: var(--muted); font-weight: 300;
   }
   .ornament {
@@ -427,7 +427,7 @@ const styles = `
   }
   .post-meta { display: flex; align-items: center; gap: 14px; margin-bottom: 24px; }
   .post-number {
-    font-family: 'Cormorant Garamond', serif; font-size: 0.85rem;
+    font-family: 'Pinyon Script', 'Petit Formal Script', cursive; font-size: 0.85rem;
     font-style: italic; color: var(--gold); letter-spacing: 0.04em;
   }
   .post-divider { flex: 1; height: 1px; background: var(--border); }
@@ -441,13 +441,13 @@ const styles = `
     box-shadow: 0 8px 32px rgba(42, 31, 23, 0.12);
   }
   .post-title {
-    font-family: 'Cormorant Garamond', serif; font-weight: 500;
+    font-family: 'Pinyon Script', 'Petit Formal Script', cursive; font-weight: 500;
     font-size: 1.8rem; color: var(--wine);
     margin-bottom: 16px; line-height: 1.2;
   }
   .post-body {
-    font-family: 'Cormorant Garamond', serif; font-size: 1.35rem;
-    font-weight: 300; line-height: 1.75; color: var(--ink);
+    font-family: 'Caveat', cursive; font-size: 1.5rem;
+    font-weight: 400; line-height: 1.6; color: var(--ink);
   }
   .post-body p { margin-bottom: 1.4em; }
   .post-body p:last-child { margin-bottom: 0; }
@@ -465,7 +465,7 @@ const styles = `
   .action-btn {
     background: none; border: 1px solid var(--border); cursor: pointer;
     padding: 8px 16px; border-radius: 40px;
-    font-family: 'Jost', sans-serif; font-size: 0.78rem; font-weight: 400;
+    font-family: 'Caveat', cursive; font-size: 0.78rem; font-weight: 400;
     letter-spacing: 0.06em; text-transform: uppercase;
     transition: all 0.2s; color: var(--muted);
   }
@@ -501,14 +501,14 @@ const styles = `
   .modal-overlay.open .modal { transform: scale(1) translateY(0); }
   .modal-ornament { font-size: 2rem; margin-bottom: 16px; color: var(--gold); }
   .modal h2 {
-    font-family: 'Cormorant Garamond', serif;
+    font-family: 'Pinyon Script', 'Petit Formal Script', cursive;
     font-size: 1.9rem; font-weight: 400; margin-bottom: 10px; color: var(--ink);
   }
   .modal p { color: var(--muted); font-size: 0.9rem; margin-bottom: 28px; line-height: 1.6; }
   .modal input[type="email"] {
     width: 100%; padding: 13px 18px;
     border: 1px solid var(--border); border-radius: 8px;
-    background: #fff; font-family: 'Jost', sans-serif;
+    background: #fff; font-family: 'Caveat', cursive;
     font-size: 0.9rem; color: var(--ink);
     margin-bottom: 12px; outline: none; transition: border-color 0.2s;
   }
@@ -516,7 +516,7 @@ const styles = `
   .modal-submit {
     width: 100%; padding: 13px;
     background: var(--wine); color: #fff; border: none; border-radius: 8px;
-    font-family: 'Jost', sans-serif; font-size: 0.85rem; font-weight: 400;
+    font-family: 'Caveat', cursive; font-size: 0.85rem; font-weight: 400;
     letter-spacing: 0.1em; text-transform: uppercase;
     cursor: pointer; transition: background 0.2s;
   }
@@ -531,7 +531,7 @@ const styles = `
     background: var(--gold); color: #fff; border: none;
     border-radius: 50px; padding: 12px 20px 12px 14px;
     display: flex; align-items: center; gap: 8px; cursor: pointer;
-    font-family: 'Jost', sans-serif; font-size: 0.8rem; font-weight: 400;
+    font-family: 'Caveat', cursive; font-size: 0.8rem; font-weight: 400;
     letter-spacing: 0.08em; text-transform: uppercase;
     box-shadow: 0 4px 24px rgba(184, 135, 58, 0.35);
     transition: all 0.2s; z-index: 150; text-decoration: none;
@@ -547,7 +547,7 @@ const styles = `
   }
   .footer-inner { max-width: 660px; margin: 0 auto; }
   .footer-logo {
-    font-family: 'Cormorant Garamond', serif;
+    font-family: 'Pinyon Script', 'Petit Formal Script', cursive;
     font-size: 1.1rem; font-style: italic;
     color: var(--muted); margin-bottom: 8px;
   }
