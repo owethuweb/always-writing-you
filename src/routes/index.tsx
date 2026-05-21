@@ -39,8 +39,6 @@ export const Route = createFileRoute("/")({
 
 function Index() {
   const [toast, setToast] = useState<string | null>(null);
-  const [modalOpen, setModalOpen] = useState(false);
-  const [email, setEmail] = useState("");
 
   const showToast = (msg: string) => {
     setToast(msg);
@@ -48,14 +46,6 @@ function Index() {
   };
 
   const [dbPosts, setDbPosts] = useState<DbPost[]>([]);
-
-  useEffect(() => {
-    const onKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape") setModalOpen(false);
-    };
-    window.addEventListener("keydown", onKey);
-    return () => window.removeEventListener("keydown", onKey);
-  }, []);
 
   useEffect(() => {
     supabase
@@ -96,16 +86,8 @@ function Index() {
     }
   };
 
-  const submit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!email.includes("@")) {
-      showToast("Pop your email in first ♡");
-      return;
-    }
-    setModalOpen(false);
-    setEmail("");
-    showToast("You're in — watch your inbox ✦");
-  };
+
+  const WHATSAPP_URL = "https://whatsapp.com/channel/0029VbCqz5RDJ6GuTZ4XMl3n";
 
   return (
     <>
@@ -120,12 +102,12 @@ function Index() {
             </span>
           </a>
           <nav>
-            <button className="nav-btn" onClick={() => setModalOpen(true)}>
+            <a className="nav-btn" href={WHATSAPP_URL} target="_blank" rel="noreferrer">
               Notify me
-            </button>
-            <button className="subscribe-btn" onClick={() => setModalOpen(true)}>
-              Follow along
-            </button>
+            </a>
+            <a className="subscribe-btn" href={WHATSAPP_URL} target="_blank" rel="noreferrer">
+              Follow on WhatsApp
+            </a>
           </nav>
         </div>
       </header>
@@ -266,35 +248,6 @@ function Index() {
         </article>
       </main>
 
-      <div
-        className={`modal-overlay${modalOpen ? " open" : ""}`}
-        onClick={(e) => {
-          if (e.target === e.currentTarget) setModalOpen(false);
-        }}
-      >
-        <div className="modal">
-          <button className="modal-close" onClick={() => setModalOpen(false)}>
-            ✕
-          </button>
-          <img className="modal-logo" src={logo} alt="Still Writing" />
-          <h2>Stay close</h2>
-          <p>
-            New letters land in your inbox whenever I write one. No noise, just
-            love.
-          </p>
-          <form onSubmit={submit}>
-            <input
-              type="email"
-              placeholder="you@email.com"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-            />
-            <button type="submit" className="modal-submit">
-              Follow along
-            </button>
-          </form>
-        </div>
-      </div>
 
       <a
         className="coffee-btn"
