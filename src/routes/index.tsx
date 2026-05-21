@@ -446,8 +446,8 @@ const styles = `
     margin-bottom: 16px; line-height: 1.2;
   }
   .post-body {
-    font-family: 'Pinyon Script', 'Petit Formal Script', cursive; font-size: 1.35rem;
-    font-weight: 300; line-height: 1.75; color: var(--ink);
+    font-family: 'Caveat', cursive; font-size: 1.5rem;
+    font-weight: 400; line-height: 1.6; color: var(--ink);
   }
   .post-body p { margin-bottom: 1.4em; }
   .post-body p:last-child { margin-bottom: 0; }
