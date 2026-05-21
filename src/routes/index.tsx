@@ -324,7 +324,7 @@ function Index() {
 
 const styles = `
   :root {
-    --cream: #F7F2E8;
+    --cream: #FFFFFF;
     --parchment: #EDE5D4;
     --ink: #2A1F17;
     --wine: #6B2737;
