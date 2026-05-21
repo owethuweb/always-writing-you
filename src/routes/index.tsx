@@ -407,8 +407,8 @@ const styles = `
   }
   .hero-title em { font-style: italic; color: var(--wine); }
   .hero-tagline {
-    font-family: 'Pinyon Script', 'Petit Formal Script', cursive; font-style: italic;
-    font-size: 1.15rem; color: var(--muted); font-weight: 300;
+    font-family: 'Caveat', cursive; font-style: normal;
+    font-size: 1.6rem; line-height: 1.5; color: var(--muted); font-weight: 500;
   }
   .ornament {
     text-align: center; color: var(--gold); font-size: 1.1rem;
